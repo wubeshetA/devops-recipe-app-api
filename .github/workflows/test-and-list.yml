@@ -1,0 +1,29 @@
+name: Test and Lint
+
+on:
+  workflow_call:
+   secrets:
+      - DOCKERHUB_USER:
+          required: true
+          description: 'Dockerhub username'
+      - DOCKERHUB_TOKEN:
+          required: true
+          description: 'Dockerhub token'
+
+jobs:
+  python:
+    name: Python
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Log in to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Test
+        run: docker compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
+      - name: Lint with flake8
+        run: docker compose run --rm app sh -c "flake8"
+  
