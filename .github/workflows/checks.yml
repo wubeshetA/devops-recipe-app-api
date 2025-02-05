@@ -7,9 +7,7 @@ on:
 jobs:
   test-lint:
     name: Test and Lint
-    runs-on: ubuntu-20.04
     uses: ./.github/workflows/test-and-lint.yml
-
     secrets:
       DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
