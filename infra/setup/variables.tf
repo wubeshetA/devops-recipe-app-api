@@ -6,7 +6,7 @@ variable "tf_state_bucket" {
 
 variable "tf_state_lock_table" {
   description = "The name of the DynamoDB table to use for Terraform state locking"
-  default     = "tf-state-setup"
+  default     = "devops-recipe-app-api-tf-lock"
 
 }
 
