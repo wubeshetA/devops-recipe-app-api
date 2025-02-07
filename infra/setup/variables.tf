@@ -1,6 +1,6 @@
 variable "tf_state_bucket" {
   description = "The name of the S3 bucket to store the Terraform state file"
-  default     = "devops-recipe-app-tf-state-wube"
+  default     = "devops-recipe-app-tf-state-wube1"
 
 }
 

@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "devops-recipe-app-tf-state-wube"
+    bucket         = "devops-recipe-app-tf-state-wube1"
     key            = "tf-state-setup"
     region         = "us-east-1"
     dynamodb_table = "devops-recipe-app-api-tf-lock"
